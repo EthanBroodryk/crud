@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RiskprofileController;
 use App\Http\Controllers\FrontPageController;
+use App\Http\Controllers\ImageController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -34,6 +35,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+
+    Route::post('/imagestore',[ImageController::class,'storeImages'])->name('storeImage');
 
     Route::post('/Add Risk Owner',[RiskprofileController::class,'create'])->name('addRiskOwner');
     Route::get('/',[FrontPageController::class,'index'])->name('home');

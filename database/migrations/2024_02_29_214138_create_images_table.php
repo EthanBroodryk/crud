@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('riskprofiles', function (Blueprint $table) {
-            $table->string('email')->unique(false)->change();
+        Schema::create('images', function (Blueprint $table) {
+            $table->id();
+            $table->string('filename');
+            $table->timestamps();
         });
     }
 
@@ -21,8 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('riskprofiles', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('images');
     }
 };
