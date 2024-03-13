@@ -1,5 +1,5 @@
 ISTRUCTIONS FOR LOCAL ENVIRONMENT
-Open termianl and run:
+Open terminal and run:
 1) composer install
 2) npm install
 3) cp .env.example .env (add env)
